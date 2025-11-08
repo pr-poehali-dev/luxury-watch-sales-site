@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    --background: 229 40% 8%;
+    --foreground: 45 100% 96%;
 
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 98%;
+    --card: 229 35% 12%;
+    --card-foreground: 45 100% 96%;
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 229 35% 12%;
+    --popover-foreground: 45 100% 96%;
 
-    --primary: 43 74% 52%;
-    --primary-foreground: 0 0% 4%;
+    --primary: 43 90% 58%;
+    --primary-foreground: 229 40% 8%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 229 30% 18%;
+    --secondary-foreground: 45 100% 96%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 229 25% 15%;
+    --muted-foreground: 220 15% 65%;
 
-    --accent: 43 74% 52%;
-    --accent-foreground: 0 0% 4%;
+    --accent: 43 90% 58%;
+    --accent-foreground: 229 40% 8%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 45 100% 96%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 43 74% 52%;
+    --border: 229 25% 25%;
+    --input: 229 25% 25%;
+    --ring: 43 90% 58%;
 
     --radius: 0.5rem;
 
@@ -110,5 +110,70 @@
   h6 {
     font-family: "Cormorant", serif;
     font-weight: 500;
+  }
+
+  body {
+    background: radial-gradient(
+      ellipse at top,
+      hsl(229, 40%, 12%) 0%,
+      hsl(229, 40%, 8%) 100%
+    );
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .gold-ornament {
+    position: relative;
+  }
+
+  .gold-ornament::before,
+  .gold-ornament::after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(43, 90%, 58%),
+      transparent
+    );
+    height: 1px;
+    width: 100px;
+    opacity: 0.5;
+  }
+
+  .gold-ornament::before {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .gold-ornament::after {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .star-pattern {
+    background-image:
+      radial-gradient(2px 2px at 20% 30%, hsl(43, 90%, 70%), transparent),
+      radial-gradient(2px 2px at 60% 70%, hsl(43, 90%, 70%), transparent),
+      radial-gradient(1px 1px at 50% 50%, hsl(43, 90%, 70%), transparent),
+      radial-gradient(1px 1px at 80% 10%, hsl(43, 90%, 70%), transparent),
+      radial-gradient(1px 1px at 90% 60%, hsl(43, 90%, 70%), transparent),
+      radial-gradient(2px 2px at 33% 80%, hsl(43, 90%, 70%), transparent),
+      radial-gradient(1px 1px at 15% 90%, hsl(43, 90%, 70%), transparent);
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    animation: starMove 100s linear infinite;
+  }
+
+  @keyframes starMove {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
   }
 }
